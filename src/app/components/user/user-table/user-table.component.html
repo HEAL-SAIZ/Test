@@ -1,0 +1,36 @@
+<div class="container">
+
+  <h1>Пользователи</h1>
+
+  <!-- Списки можно сделать отдельными компонентами, не знаю на сколько это необходимо в маленьком тестовом задании -->
+  <tui-island *ngFor="let user of users"
+              class="user-card"
+              size="m"
+              [routerLink]="['/user-page', user.id]">
+
+    <img [src]="user.avatar"
+         alt="{{ user.first_name }}" />
+
+    <div>
+      <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+      <p>{{ user.email }}</p>
+    </div>
+
+    <button class="delete-button"
+            (click)="deleteUser(user.id); $event.stopPropagation()">
+      <tui-svg src="tuiIconTrash2Large"></tui-svg>
+    </button>
+  </tui-island>
+
+  <h1>Ресурсы</h1>
+
+  <tui-island *ngFor="let resource of resources"
+              class="resource-card"
+              size="m">
+    <div>
+      <h3>{{ resource.name }}</h3>
+      <p>Year: {{ resource.year }}</p>
+      <p>Color: {{ resource.color }}</p>
+    </div>
+  </tui-island>
+</div>

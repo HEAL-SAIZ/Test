@@ -1,0 +1,41 @@
+<div *ngIf="userForm.value.id"
+     class="user-detail-card">
+
+  <h2>
+    Информаци о пользователе <br />
+    {{ userForm.value.first_name }} {{ userForm.value.last_name }}
+  </h2>
+  <img [src]="userForm.value.avatar"
+       alt="{{ userForm.value.first_name }}"
+       class="user-avatar" />
+
+  <tui-svg class="arrow-icon"
+           src="tuiIconArrowLeftLarge"
+           [routerLink]="['/users']"></tui-svg>
+
+  <form [formGroup]="userForm"
+        (ngSubmit)="updateUser()">
+
+    <label>
+      Имя
+    </label>
+    <input type="text"
+           name="firstName"
+           formControlName="first_name" />
+
+    <label>
+      Фамилия
+    </label>
+    <input type="text"
+           name="lastName"
+           formControlName="last_name" />
+
+    <label>
+      Электронная почта
+    </label>
+    <input type="email"
+           name="email"
+           formControlName="email" />
+    <button type="submit">Обновить данные</button>
+  </form>
+</div>

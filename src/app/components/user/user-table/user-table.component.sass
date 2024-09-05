@@ -1,0 +1,80 @@
+
+$primary-color: #3498db
+$secondary-color: #2ecc71
+$card-padding: 15px
+$max-width: 500px
+$avatar-size: 50px
+
+.container
+  max-width: $max-width
+  margin: 0 auto
+  padding: 20px
+  display: flex
+  flex-direction: column
+  align-items: center
+
+  h1
+    color: $primary-color
+    margin-bottom: 20px
+
+.user-card, .resource-card
+  align-items: center
+  background-color: #fff
+  border-radius: 10px
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1)
+  cursor: pointer
+  display: flex
+  padding: $card-padding
+  position: relative
+  margin-bottom: 15px
+  width: 80%
+
+  &:hover, &:focus
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15)
+    transition: box-shadow 0.3s ease
+    transform: scale(1.05)
+
+  img
+    border-radius: 50%
+    margin-right: 15px
+    width: $avatar-size
+    height: $avatar-size
+
+  div
+    h3
+      margin: 0
+      color: $secondary-color
+      font-size: 18px
+
+    p
+      margin: 5px 0
+      color: darken($primary-color, 20%)
+      font-size: 14px
+
+  .delete-button
+    position: absolute
+    right: 15px
+    top: 50%
+    transform: translateY(-50%)
+    background: none
+    border: none
+    font-size: 24px
+    color: #ff4d4f
+    cursor: pointer
+
+    &:hover
+      color: darken(#ff4d4f, 10%)
+
+    &:focus
+      outline: none
+
+@media (max-width: 600px)
+  .container
+    padding: 10px
+
+  .user-card, .resource-card
+    flex-direction: column
+    align-items: flex-start
+
+    img
+      margin-bottom: 10px
